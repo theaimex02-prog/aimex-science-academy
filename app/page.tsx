@@ -1,6 +1,5 @@
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import Navbar from "@/components/layout/Navbar";
-import CourseFAQ from "@/components/courses/CourseFAQ";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Courses from "@/components/sections/Courses";

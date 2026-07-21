@@ -15,8 +15,8 @@ function DNA() {
 
   const spheres = [];
 
-  for (let i = -18; i <= 18; i++) {
-    const y = i * 0.22;
+for (let i = -9; i <= 9; i++) {
+      const y = i * 0.22;
     const angle = i * 0.55;
 
     const x1 = Math.cos(angle) * 0.7;
@@ -68,8 +68,11 @@ function DNA() {
 
 export default function DnaScene() {
   return (
-    <div className="h-[550px] w-full">
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+   <div className="h-full w-full">
+     <Canvas
+  className="!h-full !w-full"
+  camera={{ position: [0, 0, 7], fov: 40 }}
+>
         <ambientLight intensity={2} />
 
         <pointLight position={[3, 3, 3]} intensity={3} />

@@ -1,5 +1,9 @@
 "use client";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
 
+import "swiper/css";
+import "swiper/css/pagination";
 import { motion } from "framer-motion";
 import {
   Star,
@@ -51,8 +55,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="relative overflow-hidden bg-[#08111F] py-28 text-white"
-    >
+className="relative -mt-16 overflow-hidden bg-[#08111F] pt-8 pb-24 text-white"    >
       {/* Background Glow */}
 
       <div className="absolute inset-0">
@@ -79,15 +82,15 @@ export default function Testimonials() {
             GOOGLE REVIEWS
           </p>
 
-          <h2 className="mt-4 text-5xl font-black md:text-6xl">
-            Trusted By
+<h2 className="mt-3 text-4xl font-black leading-tight md:mt-4 md:text-6xl">
+              Trusted By
             <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               Students & Parents
             </span>
           </h2>
 
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-300">
-            Real feedback from our students and parents who have experienced
+<p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+              Real feedback from our students and parents who have experienced
             quality education at AimEx Science Academy.
           </p>
 
@@ -100,8 +103,7 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: .6 }}
           viewport={{ once: true }}
-          className="mx-auto mt-16 max-w-4xl rounded-[32px] border border-cyan-500/20 bg-white/5 p-10 backdrop-blur-xl"
-        >
+className="mx-auto mt-10 max-w-4xl rounded-[32px] border border-cyan-500/20 bg-white/5 p-8 md:p-10 backdrop-blur-xl"        >
 
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
 
@@ -145,80 +147,151 @@ export default function Testimonials() {
 
         {/* Reviews */}
 
-        <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+<div className="mt-12 md:hidden">
+  <Swiper
+    modules={[Pagination, Autoplay]}
+    slidesPerView={1.15}
+    centeredSlides
+    spaceBetween={18}
+    loop
+    autoplay={{
+      delay: 3500,
+      disableOnInteraction: false,
+    }}
+    pagination={{
+      clickable: true,
+      dynamicBullets: true,
+    }}
+  >
+    {testimonials.map((item, index) => (
+      <SwiperSlide key={index}>
+        <motion.div
+          whileHover={{ y: -8 }}
+          className="group rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-500 hover:border-cyan-400 hover:bg-white/10 hover:shadow-2xl hover:shadow-cyan-500/20"
+        >
+          <Quote
+            size={34}
+            className="mb-5 text-cyan-400"
+          />
 
-          {testimonials.map((item,index)=>(
-            <motion.div
-              key={item.name}
-              initial={{opacity:0,y:40}}
-              whileInView={{opacity:1,y:0}}
-              transition={{
-                delay:index*.12,
-                duration:.6,
-              }}
-              viewport={{once:true}}
-              whileHover={{
-                y:-8,
-                scale:1.02,
-              }}
-              className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-400 hover:bg-white/10 hover:shadow-2xl hover:shadow-cyan-500/20"
-            >
-
-              <Quote
-                size={38}
-                className="mb-6 text-cyan-400"
+          <div className="mb-4 flex">
+            {[1,2,3,4,5].map((star)=>(
+              <Star
+                key={star}
+                size={18}
+                className="fill-yellow-400 text-yellow-400"
               />
+            ))}
+          </div>
 
-              <div className="mb-5 flex">
+          <p className="min-h-[170px] leading-8 text-slate-300">
+            "{item.review}"
+          </p>
 
-                {[1,2,3,4,5].map((star)=>(
-                  <Star
-                    key={star}
-                    size={18}
-                    className="fill-yellow-400 text-yellow-400"
-                  />
-                ))}
+          <div className="mt-6 flex items-center gap-4">
 
-              </div>
-                            <p className="min-h-[160px] leading-8 text-slate-300">
-                "{item.review}"
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-lg font-bold">
+              {item.name.charAt(0)}
+            </div>
+
+            <div>
+              <h3 className="font-bold">
+                {item.name}
+              </h3>
+
+              <p className="text-cyan-400">
+                {item.role}
               </p>
+            </div>
 
-              <div className="mt-8 flex items-center gap-4">
+          </div>
 
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-lg font-bold">
-                  {item.name.charAt(0)}
-                </div>
+        </motion.div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
+<div className="mt-20 hidden gap-8 md:grid md:grid-cols-2 lg:grid-cols-3">
 
-                <div>
+  {testimonials.map((item,index)=>(
 
-                  <h3 className="text-lg font-bold">
-                    {item.name}
-                  </h3>
+    <motion.div
+      key={item.name}
+      initial={{opacity:0,y:40}}
+      whileInView={{opacity:1,y:0}}
+      transition={{
+        delay:index*.12,
+        duration:.6,
+      }}
+      viewport={{once:true}}
+      whileHover={{
+        y:-8,
+        scale:1.02,
+      }}
+      className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-400 hover:bg-white/10 hover:shadow-2xl hover:shadow-cyan-500/20"
+    >
 
-                  <p className="text-cyan-400">
-                    {item.role}
-                  </p>
+      <Quote
+        size={38}
+        className="mb-6 text-cyan-400"
+      />
 
-                </div>
+      <div className="mb-5 flex">
 
-              </div>
+        {[1,2,3,4,5].map((star)=>(
 
-            </motion.div>
+          <Star
+            key={star}
+            size={18}
+            className="fill-yellow-400 text-yellow-400"
+          />
 
-          ))}
+        ))}
+
+      </div>
+
+      <p className="min-h-[160px] leading-8 text-slate-300">
+
+        "{item.review}"
+
+      </p>
+
+      <div className="mt-8 flex items-center gap-4">
+
+        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-lg font-bold">
+
+          {item.name.charAt(0)}
 
         </div>
 
+        <div>
+
+          <h3 className="text-lg font-bold">
+            {item.name}
+          </h3>
+
+          <p className="text-cyan-400">
+            {item.role}
+          </p>
+
+        </div>
+
+      </div>
+
+    </motion.div>
+
+  ))}
+
+</div>
         {/* Bottom CTA */}
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          viewport={{ once: true }}
-          className="mt-20 flex justify-center"
-        >
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.2 }}
+  viewport={{ once: true }}
+  className="mt-10 flex justify-center md:mt-20"
+>
 
           <a
             href="#"

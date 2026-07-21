@@ -109,12 +109,12 @@ export default function Navbar() {
       ))}
 
       <a
-        href="#contact"
-        onClick={() => setMenuOpen(false)}
-        className="mt-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-3 text-center font-semibold text-white"
-      >
-        Admission Open
-      </a>
+  href="#enquiry-form"
+  onClick={() => setMenuOpen(false)}
+  className="mt-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-3 text-center font-semibold text-white"
+>
+  Admission Open
+</a>
     </nav>
   </div>
 )}

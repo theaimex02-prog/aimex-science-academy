@@ -43,6 +43,9 @@ export default function AnnouncementBar() {
 
         const snapshot = await getDocs(q);
 
+console.log("Snapshot empty:", snapshot.empty);
+console.log("Documents:", snapshot.docs.length);
+
         if (!snapshot.empty) {
           const doc = snapshot.docs[0];
 
@@ -50,16 +53,11 @@ export default function AnnouncementBar() {
             id: doc.id,
             ...doc.data(),
           } as Announcement;
+console.log("Announcement:", data);
+          console.log("Announcement Data:", data);
 
-          if (data.published) {
-  setAnnouncement(data);
-
-  const alreadyShown = sessionStorage.getItem("announcementShown");
-
-  if (!alreadyShown) {
-    setOpen(true);
-  }
-}
+setAnnouncement(data);
+setOpen(true);
         }
       } catch (err) {
         console.error("Failed to load announcement:", err);
@@ -143,8 +141,7 @@ export default function AnnouncementBar() {
             duration: .35,
           }}
 
-          className="relative w-full max-w-6xl overflow-hidden rounded-[32px] border border-cyan-500/20 bg-[#081321] shadow-[0_0_80px_rgba(6,182,212,.15)]"
-
+className="relative w-[94vw] max-w-5xl rounded-[28px] overflow-hidden border border-cyan-500/20 bg-[#081321] shadow-[0_0_80px_rgba(6,182,212,.15)]"
         >
 
           {/* Close */}
@@ -154,8 +151,7 @@ export default function AnnouncementBar() {
   sessionStorage.setItem("announcementShown", "true");
   setOpen(false);
 }}
-            className="absolute right-5 top-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-red-500 text-white transition hover:scale-110"
-          >
+className="absolute right-4 top-4 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-red-500 text-white transition hover:scale-110 lg:h-12 lg:w-12"          >
             <X size={22} />
           </button>
 
@@ -165,39 +161,39 @@ export default function AnnouncementBar() {
 
           <div className="absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-blue-500/10 blur-[150px]" />
 
-          <div className="relative grid min-h-[620px] lg:grid-cols-2">
+          <div className="relative grid max-h-[90vh] overflow-y-auto lg:grid-cols-2">
             {/* Left Side */}
 
-<div className="flex flex-col justify-center p-10 lg:p-14">
+<div className="flex flex-col justify-center p-5 lg:p-14">
 
   <p className="inline-flex w-fit items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-5 py-2 text-sm font-semibold text-cyan-300">
     <GraduationCap size={18} />
     AIMEX SCIENCE ACADEMY
   </p>
 
-  <h2 className="mt-8 text-4xl font-black leading-tight text-white lg:text-5xl">
+  <h2 className="mt-6 text-3xl font-black leading-tight text-white sm:text-4xl lg:mt-8 lg:text-5xl">
     🎓 {announcement.title}
   </h2>
 
-  <p className="mt-6 whitespace-pre-line text-lg leading-8 text-slate-300">
+  <p className="mt-6 whitespace-pre-wrap break-all text-base leading-7 text-slate-300 sm:text-lg">
     {announcement.message}
   </p>
 
-  <div className="mt-10 grid gap-4 sm:grid-cols-2">
+  <div className="mt-8 grid grid-cols-2 gap-3">
 
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+    <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm">
       ✅ Expert Faculty
     </div>
 
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+    <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm">
       ✅ Limited Seats
     </div>
 
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+    <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm">
       ✅ Personal Mentorship
     </div>
 
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+    <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm">
       ✅ Weekly Tests
     </div>
 
@@ -215,8 +211,7 @@ export default function AnnouncementBar() {
           });
         }, 200);
       }}
-      className="group inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-bold text-white transition hover:scale-105"
-    >
+className="group flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-4 text-base font-bold text-white transition hover:scale-[1.02] lg:inline-flex lg:w-auto"    >
       🚀 Apply for Admission
 
       <ArrowRight
@@ -229,11 +224,11 @@ export default function AnnouncementBar() {
 
   <div className="mt-8 flex flex-wrap gap-3">
 
-    <span className="rounded-full border border-cyan-500/30 bg-cyan-500/15 px-4 py-2 text-sm font-semibold text-cyan-300">
+    <span className="rounded-full border border-cyan-500/30 bg-cyan-500/15 px-3 py-1.5 text-xs sm:text-sm font-semibold text-cyan-300">
       📂 {announcement.category || "Announcement"}
     </span>
 
-    <span className="rounded-full border border-amber-500/30 bg-amber-500/15 px-4 py-2 text-sm font-semibold text-amber-300">
+    <span className="rounded-full border border-amber-500/30 bg-amber-500/15 px-3 py-1.5 text-xs sm:text-sm font-semibold text-amber-300">
       ⭐ {announcement.priority || "High"}
     </span>
 
@@ -275,7 +270,7 @@ export default function AnnouncementBar() {
 
     <div className="mt-10 space-y-4">
 
-      <div className="rounded-xl border border-cyan-500/20 bg-white/5 p-4">
+      <div className="rounded-xl border border-cyan-500/20 bg-white/5 p-3 sm:p-4">
 
         <p className="text-xs uppercase text-slate-400">
           Category
@@ -287,7 +282,7 @@ export default function AnnouncementBar() {
 
       </div>
 
-      <div className="rounded-xl border border-amber-500/20 bg-white/5 p-4">
+      <div className="rounded-xl border border-amber-500/20 bg-white/5 p-3 sm:p-4">
 
         <p className="text-xs uppercase text-slate-400">
           Priority
@@ -299,7 +294,7 @@ export default function AnnouncementBar() {
 
       </div>
 
-      <div className="rounded-xl border border-green-500/20 bg-white/5 p-4">
+      <div className="rounded-xl border border-green-500/20 bg-white/5 p-3 sm:p-4">
 
         <p className="text-xs uppercase text-slate-400">
           Status

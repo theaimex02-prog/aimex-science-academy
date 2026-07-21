@@ -12,8 +12,8 @@ import {
 export default function CTA() {
   return (
     <section
-      className="relative overflow-hidden bg-[#07101D] py-28 text-white"
-    >
+  className="relative -mt-16 overflow-hidden bg-[#07101D] pt-12 pb-24 text-white"
+>
       {/* Background Glow */}
 
       <div className="absolute inset-0">
@@ -41,8 +41,7 @@ export default function CTA() {
           viewport={{
             once: true,
           }}
-          className="overflow-hidden rounded-[40px] border border-cyan-500/20 bg-white/5 p-12 backdrop-blur-xl"
-        >
+className="overflow-hidden rounded-[32px] border border-cyan-500/20 bg-white/5 p-6 md:p-12 backdrop-blur-xl"        >
 
           {/* Badge */}
 
@@ -77,7 +76,7 @@ export default function CTA() {
 
           {/* Heading */}
 
-          <h2 className="mt-8 text-center text-5xl font-black leading-tight md:text-7xl">
+          <h2 className="mt-6 text-center text-4xl font-black leading-tight md:mt-8 md:text-7xl">
 
             Shape Your
 
@@ -89,32 +88,23 @@ export default function CTA() {
 
           </h2>
 
-          <p className="mx-auto mt-8 max-w-3xl text-center text-lg leading-8 text-slate-300">
-
-            Join AimEx Science Academy and prepare for
-            Board Exams, NEET, JEE and MHT-CET with
-            experienced faculty, regular assessments,
-            personalized guidance and a motivating
-            learning environment.
-
-          </p>
-
+          
           {/* Stats */}
 
-          <div className="mt-14 grid gap-6 md:grid-cols-4">
+<div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
 
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+            <div className="group rounded-3xl border border-cyan-500/10 bg-gradient-to-b from-white/10 to-white/5 p-5 text-center backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400 hover:shadow-[0_0_35px_rgba(34,211,238,0.18)]">
 
               <Award
-                size={36}
-                className="mx-auto text-cyan-400"
-              />
+  size={30}
+  className="mx-auto text-cyan-400 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+/>
 
-              <h3 className="mt-4 text-3xl font-bold">
+              <h3 className="mt-3 text-2xl font-extrabold md:text-3xl">
                 33+
               </h3>
 
-              <p className="mt-2 text-slate-300">
+              <p className="mt-1 text-sm leading-5 text-slate-300 md:text-base">
                 Years Experience
               </p>
 

@@ -29,3 +29,78 @@ html {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
+/* ===== Results Swiper Pagination ===== */
+
+#results .swiper-pagination {
+  bottom: 0 !important;
+}
+
+#results .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #22d3ee; /* Cyan */
+  opacity: 0.35;
+  transition: all 0.3s ease;
+}
+
+#results .swiper-pagination-bullet-active {
+  width: 32px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #22d3ee, #3b82f6);
+  opacity: 1;
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.8);
+}
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitReverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.swiper-pagination{
+  margin-top:20px;
+  position:relative !important;
+}
+
+.swiper-pagination-bullet{
+  background:#22d3ee !important;
+  opacity:.4;
+}
+
+.swiper-pagination-bullet-active{
+  opacity:1;
+  width:28px;
+  border-radius:999px;
+}
+/* Gallery Swiper */
+.swiper {
+  padding-bottom: 42px;
+}
+
+.swiper-pagination {
+  bottom: 0 !important;
+}
+
+.swiper-pagination-bullet {
+  background: #22d3ee !important;
+  opacity: 0.35;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  width: 26px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #22d3ee, #3b82f6) !important;
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
+}

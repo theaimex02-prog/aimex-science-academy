@@ -84,9 +84,8 @@ useEffect(() => {
   return (
     <section
       id="faculty"
-      className="relative overflow-hidden bg-[#08111F] py-28 text-white"
-    >
-      {/* Background Glow */}
+className="relative overflow-hidden bg-[#08111F] -mt-12 pt-0 pb-24 text-white">
+        {/* Background Glow */}
 
       <div className="absolute inset-0">
 
@@ -128,9 +127,8 @@ useEffect(() => {
 
         {/* Faculty Grid */}
 
-<div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-
-  {loading ? (
+<div className="mt-12 grid grid-cols-2 gap-3 md:mt-20 md:grid-cols-2 lg:grid-cols-4">
+    {loading ? (
 
     <div className="col-span-full py-20 text-center">
 
@@ -199,62 +197,29 @@ useEffect(() => {
           scale: 1.03,
         }}
 
-        className="group rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-500 hover:border-cyan-400 hover:bg-white/10 hover:shadow-2xl hover:shadow-cyan-500/20"
-
-      >
+className="group rounded-2xl border border-white/10 bg-white/5 p-2 md:p-6 backdrop-blur-xl transition-all duration-500 hover:border-cyan-400 hover:bg-white/10 hover:shadow-2xl hover:shadow-cyan-500/20 flex flex-col"      >
 
         {/* Faculty Image */}
 
-        <div className="overflow-hidden rounded-xl">
-
-          <div className="mx-auto h-60 w-full overflow-hidden rounded-2xl border border-white/10">
-
-  <div className="mx-auto h-64 w-full overflow-hidden rounded-2xl border border-cyan-500/20 shadow-lg">
-
-  <div className="overflow-hidden rounded-xl">
-
-  <div className="overflow-hidden">
-
-  {/* Faculty Image */}
-
-<div className="overflow-hidden rounded-xl">
-
+<div className="overflow-hidden rounded-2xl border border-cyan-500/20 shadow-lg">
   <img
     src={teacher.imageUrl}
     alt={teacher.name}
-    className="h-64 w-full object-cover object-top transition duration-500 group-hover:scale-105"
+    className="h-28 w-full object-cover object-top transition duration-500 group-hover:scale-105 md:h-64"
   />
-
 </div>
 
+<h3 className="mt-2 min-h-[48px] md:min-h-[60px] flex items-center justify-center text-center text-[13px] font-bold leading-tight line-clamp-2 md:mt-6 md:text-xl">
+  {teacher.name}
+</h3>
+
+<div className="mt-2 flex justify-center">
+  <span className="rounded-full bg-cyan-500/15 px-2 py-0.5 text-[9px] font-semibold text-cyan-300 md:px-4 md:py-2 md:text-sm">
+    {teacher.subject}
+  </span>
 </div>
 
-</div>
-
-</div>
-
-</div>
-
-        </div>
-
-        <h3 className="mt-6 line-clamp-2 min-h-[60px] text-center text-xl font-bold">
-
-          {teacher.name}
-
-        </h3>
-
-        <div className="mt-4 flex justify-center">
-
-          <span className="rounded-full bg-cyan-500/15 px-4 py-2 text-sm font-semibold text-cyan-300">
-
-            {teacher.subject}
-
-          </span>
-
-        </div>
-
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-
+<div className="mt-3 hidden flex-wrap justify-center gap-3 md:flex">
           <span className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm">
 
             🎓 {teacher.qualification}
@@ -270,18 +235,12 @@ useEffect(() => {
         </div>
 
         {teacher.featured && (
-
-          <div className="mt-5 flex justify-center">
-
-            <span className="rounded-full bg-yellow-500/20 px-4 py-2 text-sm font-semibold text-yellow-300">
-
-              ⭐ Featured Faculty
-
-            </span>
-
-          </div>
-
-        )}
+  <div className="mt-4 hidden justify-center md:flex">
+    <span className="rounded-full bg-yellow-500/20 px-4 py-2 text-sm font-semibold text-yellow-300">
+      ⭐ Featured Faculty
+    </span>
+  </div>
+)}
 
       </motion.div>
 

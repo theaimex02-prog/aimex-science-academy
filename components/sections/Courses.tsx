@@ -113,8 +113,7 @@ export default function Courses() {
 
         {/* Course Cards */}
 
-        <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-
+<div className="mt-12 grid grid-cols-2 gap-4 md:mt-20 lg:grid-cols-3">
           {courses.map((course, index) => (
 
             <motion.div
@@ -130,54 +129,48 @@ export default function Courses() {
                 y: -10,
                 scale: 1.03,
               }}
-              className="group flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-400 hover:bg-white/10 hover:shadow-2xl hover:shadow-cyan-500/20"
+              className="group flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-4 lg:p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-400 hover:bg-white/10 hover:shadow-2xl hover:shadow-cyan-500/20"
             >
 
               {/* Icon */}
 
               <div
-                className={`mb-8 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br ${course.gradient} shadow-xl transition duration-500 group-hover:rotate-6 group-hover:scale-110`}
+                className={`mb-8 flex h-14 w-14 lg:h-20 lg:w-20 items-center justify-center rounded-2xl bg-gradient-to-br ${course.gradient} shadow-xl transition duration-500 group-hover:rotate-6 group-hover:scale-110`}
               >
 
                 <course.icon
-                  size={42}
+                  size={28}
                   className="text-white"
                 />
 
               </div>
 
-              <h3 className="text-3xl font-bold">
+              <h3 className="text-lg leading-tight lg:text-3xl font-bold">
                 {course.title}
               </h3>
 
-              <p className="mt-2 font-medium text-cyan-400">
+              <p className="mt-1 text-sm font-medium lg:mt-2 lg:text-base text-cyan-400">
                 {course.subtitle}
               </p>
 
-              <p className="mt-6 leading-8 text-slate-300">
-                {course.description}
-              </p>
 
-              <div className="mt-8 flex items-center gap-3 text-slate-400">
-
+<div className="mt-3 flex items-center gap-2 text-sm text-slate-400">
                 <Clock3 size={18} />
 
                 <span>{course.duration}</span>
 
               </div>
 
-              <div className="mt-5 flex items-center gap-3 text-slate-400">
-
+<div className="mt-2 flex items-center gap-2 text-sm text-slate-400">
                 <GraduationCap size={18} />
 
                 <span>Expert Faculty</span>
 
               </div>
 
-              <div className="mt-auto pt-10">
-  <Link
+<div className="mt-auto pt-4">  <Link
   href={`/courses/${course.slug}`}
-  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/30"
+  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-2 text-sm lg:px-6 lg:py-3 lg:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/30"
 >
   <span className="inline-flex items-center gap-2">
     Explore Course

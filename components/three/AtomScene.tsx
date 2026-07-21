@@ -125,8 +125,11 @@ function Atom() {
 
 export default function AtomScene() {
   return (
-    <Canvas camera={{ position: [0, 0, 4], fov: 45 }}>
-
+<Canvas
+  className="!h-full !w-full"
+  camera={{ position: [0, 0, 4], fov: 45 }}
+  dpr={[1, 2]}
+>
       <ambientLight intensity={2} />
 
       <pointLight
@@ -144,8 +147,9 @@ export default function AtomScene() {
 <OrbitControls
   enableZoom={false}
   enablePan={false}
+  enableRotate={true}
   autoRotate
-  autoRotateSpeed={1}
+  autoRotateSpeed={0.35}
 />
     </Canvas>
   );

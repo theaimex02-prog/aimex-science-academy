@@ -73,8 +73,7 @@ export default function Facilities() {
   return (
     <section
       id="facilities"
-      className="relative overflow-hidden bg-[#08111F] py-28 text-white"
-    >
+className="relative -mt-16 overflow-hidden bg-[#08111F] pt-8 pb-24 text-white"    >
 
       {/* Background */}
 
@@ -102,8 +101,7 @@ export default function Facilities() {
             WHY CHOOSE AIMEX
           </p>
 
-          <h2 className="mt-4 text-5xl font-black md:text-6xl">
-
+<h2 className="mt-3 text-4xl font-black leading-tight md:mt-4 md:text-6xl">
             Experience
 
             <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
@@ -112,8 +110,7 @@ export default function Facilities() {
 
           </h2>
 
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-300">
-
+<p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-300">
             Explore the facilities that make AimEx Science Academy
             a modern destination for quality education.
 
@@ -123,8 +120,7 @@ export default function Facilities() {
 
         {/* Main Layout */}
 
-        <div className="mt-20 grid gap-10 lg:grid-cols-[340px_1fr]">
-
+<div className="mt-10 grid gap-8 lg:grid-cols-[340px_1fr]">
           {/* Left Panel */}
 
           <div className="space-y-4">

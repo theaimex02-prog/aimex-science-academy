@@ -57,7 +57,7 @@ useEffect(() => {
 
     }
 
-    if (user.email !== "aimex.desk@gmail.com") {
+    if (user.email !== "theaimex02@gmail.com") {
 
       alert("Access Denied");
 
@@ -237,14 +237,12 @@ const deleteEnquiry = async () => {
         </p>
 
         <button
-          className="mt-8 flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-7 py-4 font-bold transition hover:scale-105"
-        >
-
-          View Enquiries
-
-          <ArrowUpRight size={20} />
-
-        </button>
+  onClick={() => router.push("/admin/enquiries")}
+  className="mt-8 flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-7 py-4 font-bold transition hover:scale-105"
+>
+  View Enquiries
+  <ArrowUpRight size={20} />
+</button>
 
       </motion.div>
 
@@ -315,21 +313,33 @@ const deleteEnquiry = async () => {
 
           <div className="mt-8 space-y-4">
 
-            <button className="w-full rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 py-4 font-semibold transition hover:scale-[1.02]">
-              📥 View Enquiries
-            </button>
+            <button
+  onClick={() => router.push("/admin/enquiries")}
+  className="w-full rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 py-4 font-semibold transition hover:scale-[1.02]"
+>
+  📥 View Enquiries
+</button>
 
-            <button className="w-full rounded-2xl border border-white/10 bg-white/5 py-4 font-semibold transition hover:border-cyan-400 hover:bg-cyan-500/10">
-              🖼 Manage Gallery
-            </button>
+            <button
+  onClick={() => router.push("/admin/gallery")}
+  className="w-full rounded-2xl border border-white/10 bg-white/5 py-4 font-semibold transition hover:border-cyan-400 hover:bg-cyan-500/10"
+>
+  🖼 Manage Gallery
+</button>
 
-            <button className="w-full rounded-2xl border border-white/10 bg-white/5 py-4 font-semibold transition hover:border-cyan-400 hover:bg-cyan-500/10">
-              🏆 Update Results
-            </button>
+            <button
+  onClick={() => router.push("/admin/results")}
+  className="w-full rounded-2xl border border-white/10 bg-white/5 py-4 font-semibold transition hover:border-cyan-400 hover:bg-cyan-500/10"
+>
+  🏆 Update Results
+</button>
 
-            <button className="w-full rounded-2xl border border-white/10 bg-white/5 py-4 font-semibold transition hover:border-cyan-400 hover:bg-cyan-500/10">
-              📢 Announcements
-            </button>
+            <button
+  onClick={() => router.push("/admin/announcements")}
+  className="w-full rounded-2xl border border-white/10 bg-white/5 py-4 font-semibold transition hover:border-cyan-400 hover:bg-cyan-500/10"
+>
+  📢 Announcements
+</button>
 
           </div>
 

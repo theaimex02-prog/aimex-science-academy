@@ -31,19 +31,18 @@ useEffect(() => {
         <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-blue-600/10 blur-[140px]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 py-20">
+      <div className="relative mx-auto max-w-7xl px-6 pt-8 pb-16 md:pt-12 md:pb-16">
 
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
 
           {/* Brand */}
 
-          <div>
-
+<div className="text-center md:text-left">
             <h2 className="text-4xl font-black text-cyan-400">
   {settings?.academyName || "AimEx Science Academy"}
 </h2>
 
-            <p className="mt-6 leading-8 text-slate-300">
+            <p className="mt-4 leading-7 text-slate-300">
               Building future doctors, engineers and achievers through
               quality education, experienced faculty and modern teaching.
             </p>
@@ -54,7 +53,7 @@ useEffect(() => {
 
           <div>
 
-            <h3 className="mb-6 text-xl font-bold">
+            <h3 className="mb-4 text-lg font-bold text-cyan-300">
               Quick Links
             </h3>
 
@@ -109,10 +108,10 @@ useEffect(() => {
   <Mail size={18} className="text-cyan-400" />
 
   <a
-    href={`mailto:${settings?.email || "aimex.desk@gmail.com"}`}
+    href={`mailto:${settings?.email || "theaimex02@gmail.com"}`}
     className="text-slate-300 transition hover:text-cyan-400"
   >
-    {settings?.email || "aimex.desk@gmail.com"}
+    {settings?.email || "theaimex02@gmail.com"}
   </a>
 </div>
 
@@ -189,8 +188,7 @@ useEffect(() => {
 
         {/* Bottom */}
 
-        <div className="mt-16 border-t border-white/10 pt-8">
-
+<div className="mt-10 border-t border-white/10 pt-6">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
 
             <p className="text-sm text-slate-400">

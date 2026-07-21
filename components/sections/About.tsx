@@ -5,9 +5,9 @@ import DnaScene from "@/components/three/DnaScene";
 export default function About() {
   return (
     <section
-      id="about"
-      className="bg-[#0A0F1F] py-24 text-white"
-    >
+  id="about"
+  className="relative overflow-hidden bg-[#0A0F1F] pt-20 pb-0 text-white lg:py-24"
+>
       <div className="mx-auto max-w-7xl px-6">
 
         <motion.div
@@ -38,8 +38,8 @@ export default function About() {
 
         </motion.div>
 
-        <div className="mt-20 grid items-center gap-14 lg:grid-cols-2">
-            {/* Left Side */}
+<div className="mt-12 grid items-center gap-8 lg:mt-20 lg:gap-14 lg:grid-cols-2">
+              {/* Left Side */}
 
 <motion.div
   initial={{ opacity: 0, x: -80 }}
@@ -50,7 +50,7 @@ export default function About() {
 >
   <div className="overflow-hidden rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/20 to-blue-700/20 p-2">
 
-    <div className="h-[500px] rounded-3xl bg-[#10182B]">
+    <div className="h-[280px] sm:h-[350px] lg:h-[500px] rounded-3xl bg-[#071126]">
   <DnaScene />
 </div>
 
@@ -87,49 +87,48 @@ export default function About() {
     Our experienced faculty, regular assessments and modern
     teaching methods help students achieve outstanding academic success.
   </p>
-  <div className="grid gap-5 md:grid-cols-2">
-
-  <div className="rounded-2xl border border-cyan-500/20 bg-white/5 p-6 backdrop-blur-xl">
-    <h4 className="mb-2 text-xl font-bold text-cyan-400">
-      🎯 Our Mission
+<div className="grid grid-cols-2 gap-3 lg:gap-5">
+  <div className="rounded-xl border border-cyan-500/20 bg-white/5 p-3 backdrop-blur-xl lg:rounded-2xl lg:p-6">
+<h4 className="mb-2 text-sm font-bold text-cyan-400 lg:text-xl">
+        🎯 Our Mission
     </h4>
 
-    <p className="text-slate-300">
-      To empower students with quality education, strong fundamentals,
+<p className="text-xs leading-5 text-slate-300 lg:text-base lg:leading-7">
+        To empower students with quality education, strong fundamentals,
       disciplined learning, and continuous motivation to excel in
       competitive examinations.
     </p>
   </div>
 
-  <div className="rounded-2xl border border-cyan-500/20 bg-white/5 p-6 backdrop-blur-xl">
-    <h4 className="mb-2 text-xl font-bold text-cyan-400">
-      🌍 Our Vision
+  <div className="rounded-xl border border-cyan-500/20 bg-white/5 p-3 backdrop-blur-xl lg:rounded-2xl lg:p-6">
+<h4 className="mb-2 text-sm font-bold text-cyan-400 lg:text-xl">
+        🌍 Our Vision
     </h4>
 
-    <p className="text-slate-300">
-      To become one of India's most trusted science academies by
+<p className="text-xs leading-5 text-slate-300 lg:text-base lg:leading-7">
+        To become one of India's most trusted science academies by
       producing successful doctors, engineers and future leaders.
     </p>
   </div>
 
-  <div className="rounded-2xl border border-cyan-500/20 bg-white/5 p-6 backdrop-blur-xl">
-    <h4 className="mb-2 text-xl font-bold text-cyan-400">
-      👨‍🏫 Expert Faculty
+  <div className="rounded-xl border border-cyan-500/20 bg-white/5 p-3 backdrop-blur-xl lg:rounded-2xl lg:p-6">
+<h4 className="mb-2 text-sm font-bold text-cyan-400 lg:text-xl">
+        👨‍🏫 Expert Faculty
     </h4>
 
-    <p className="text-slate-300">
-      Experienced mentors dedicated to every student's academic
+<p className="text-xs leading-5 text-slate-300 lg:text-base lg:leading-7">
+        Experienced mentors dedicated to every student's academic
       success with personal attention.
     </p>
   </div>
 
-  <div className="rounded-2xl border border-cyan-500/20 bg-white/5 p-6 backdrop-blur-xl">
-    <h4 className="mb-2 text-xl font-bold text-cyan-400">
-      📚 Smart Learning
+  <div className="rounded-xl border border-cyan-500/20 bg-white/5 p-3 backdrop-blur-xl lg:rounded-2xl lg:p-6">
+<h4 className="mb-2 text-sm font-bold text-cyan-400 lg:text-xl">
+        📚 Smart Learning
     </h4>
 
-    <p className="text-slate-300">
-      Regular tests, doubt-solving sessions, study material,
+<p className="text-xs leading-5 text-slate-300 lg:text-base lg:leading-7">
+        Regular tests, doubt-solving sessions, study material,
       digital learning and complete exam preparation.
     </p>
   </div>

@@ -65,7 +65,7 @@ const contactInfo = [
   {
   icon: Mail,
   title: "Email",
-  content: settings?.email || "aimex.desk@gmail.com",
+  content: settings?.email || "theaimex02@gmail.com",
 },
   {
     icon: Clock,
@@ -137,8 +137,7 @@ const contactInfo = [
 
     <section
       id="contact"
-      className="relative overflow-hidden bg-[#08111F] py-24 text-white"
-    >
+className="relative -mt-12 overflow-hidden bg-[#08111F] pt-8 pb-24 text-white"    >
 
       {/* Background Glow */}
 
@@ -178,8 +177,7 @@ const contactInfo = [
 
         </motion.div>
 
-        <div className="mt-16 grid items-start gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-
+<div className="mt-10 grid items-start gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           {/* LEFT STARTS HERE */}
                     <div>
 
@@ -308,9 +306,10 @@ const contactInfo = [
             </p>
 
             <form
-              onSubmit={handleSubmit}
-              className="mt-8 space-y-5"
-            >
+  id="enquiry-form"
+  onSubmit={handleSubmit}
+  className="mt-8 space-y-5 scroll-mt-28"
+>
                             <div className="grid gap-5 md:grid-cols-2">
 
                 <input

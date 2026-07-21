@@ -21,7 +21,7 @@ export default function LoginPage() {
 
       const result = await signInWithGoogle();
 
-      if (result.user.email !== "aimex.desk@gmail.com") {
+      if (result.user.email !== "theaimex02@gmail.com") {
 
         alert("Access Denied");
 

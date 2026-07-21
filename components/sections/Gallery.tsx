@@ -5,7 +5,11 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import { Expand } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
 
+import "swiper/css";
+import "swiper/css/pagination";
 import {
   collection,
   getDocs,
@@ -69,9 +73,9 @@ export default function Gallery() {
   return (
 
     <section
-      id="gallery"
-      className="relative overflow-hidden bg-[#08111F] py-28 text-white"
-    >
+  id="gallery"
+  className="relative -mt-16 overflow-hidden bg-[#08111F] pt-8 pb-24 text-white"
+>
 
       {/* Background Glow */}
 
@@ -117,7 +121,7 @@ export default function Gallery() {
 
           </p>
 
-          <h2 className="mt-4 text-5xl font-black md:text-6xl">
+          <h2 className="mt-3 text-4xl font-black leading-tight md:mt-4 md:text-6xl">
 
             Life At
 
@@ -129,7 +133,7 @@ export default function Gallery() {
 
           </h2>
 
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-300">
+          <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-300">
 
             Explore our classrooms, seminars, activities,
             practical sessions and memorable moments.
@@ -137,11 +141,51 @@ export default function Gallery() {
           </p>
 
         </motion.div>
+{/* Mobile Gallery */}
+<div className="mt-12 md:hidden">
+  <Swiper
+    modules={[Pagination, Autoplay]}
+    slidesPerView={1.08}
+    centeredSlides
+    spaceBetween={18}
+    pagination={{ clickable: true }}
+    autoplay={{
+      delay: 3000,
+      disableOnInteraction: false,
+    }}
+    loop
+  >
+    {gallery.map((item) => (
+      <SwiperSlide key={item.id}>
+        <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-xl">
+          <img
+            src={item.imageUrl}
+            alt={item.title}
+            className="h-72 w-full object-cover"
+          />
 
+<div className="p-4">
+              <span className="rounded-full bg-cyan-500 px-3 py-1 text-xs font-semibold text-white">
+              {item.category || "Gallery"}
+            </span>
+
+<h3 className="mt-3 text-lg font-bold line-clamp-2">
+                {item.title}
+            </h3>
+
+<p className="mt-1 text-sm text-slate-400">
+                AimEx Science Academy
+            </p>
+          </div>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
         {/* Gallery */}
 
-        <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {loading ? (
+<div className="mt-20 hidden gap-8 md:grid md:grid-cols-2 lg:grid-cols-3">
+                      {loading ? (
 
             <div className="col-span-full text-center text-slate-400">
 
@@ -308,8 +352,7 @@ export default function Gallery() {
           viewport={{
             once: true,
           }}
-          className="mt-20 text-center"
-        >
+className="mt-10 text-center"        >
 
           <p className="mx-auto max-w-3xl text-lg leading-8 text-slate-400">
 
