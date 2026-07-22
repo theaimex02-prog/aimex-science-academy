@@ -20,13 +20,6 @@ import ACAnimation from "./facility/ACAnimation";
 
 const facilities = [
   {
-    id: "ac",
-    title: "Air Conditioned Classrooms",
-    description:
-      "Comfortable air-conditioned classrooms that provide a peaceful learning environment throughout the year.",
-    icon: Snowflake,
-  },
-  {
     id: "practical",
     title: "Practical Learning",
     description:
@@ -61,12 +54,18 @@ const facilities = [
       "Professional guidance to help students choose the right career path.",
     icon: Target,
   },
+  {
+    id: "ac",
+    title: "Air Conditioned Classrooms",
+    description:
+      "Comfortable air-conditioned classrooms that provide a peaceful learning environment throughout the year.",
+    icon: Snowflake,
+  },
 ];
 
 export default function Facilities() {
 
-  const [activeFacility, setActiveFacility] = useState("ac");
-
+const [activeFacility, setActiveFacility] = useState("practical");
   const active =
     facilities.find((item) => item.id === activeFacility)!;
 
@@ -197,8 +196,7 @@ className="relative -mt-16 overflow-hidden bg-[#08111F] pt-8 pb-24 text-white"  
 
               {/* Animation */}
 
-              <div className="overflow-hidden rounded-3xl border border-white/10 bg-[#0F172A]">
-
+<div className="hidden overflow-hidden rounded-3xl border border-white/10 bg-[#0F172A] md:block">
                 {activeFacility === "ac" && <ACAnimation />}
 
                 {activeFacility === "practical" && <PracticalAnimation />}

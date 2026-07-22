@@ -215,13 +215,12 @@ export default function Courses() {
 
             </div>
 
-            <button className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/30">
-
-              Book Free Counselling
-
-              <ArrowRight size={20} />
-
-            </button>
+            <a
+  href="tel:+919370906120"
+  className="inline-flex items-center justify-center rounded-full bg-cyan-500 px-8 py-4 text-lg font-semibold text-white transition hover:bg-cyan-400"
+>
+  Book a FREE Counselling
+</a>
 
           </div>
 

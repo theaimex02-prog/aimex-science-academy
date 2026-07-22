@@ -141,9 +141,7 @@ setOpen(true);
             duration: .35,
           }}
 
-className="relative w-[94vw] max-w-5xl rounded-[28px] overflow-hidden border border-cyan-500/20 bg-[#081321] shadow-[0_0_80px_rgba(6,182,212,.15)]"
-        >
-
+className="relative w-[94vw] max-w-5xl rounded-[28px] overflow-hidden border border-cyan-500/20 bg-[#081321] shadow-[0_0_80px_rgba(6,182,212,.15)]">
           {/* Close */}
 
           <button
@@ -161,8 +159,7 @@ className="absolute right-4 top-4 z-50 flex h-10 w-10 items-center justify-cente
 
           <div className="absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-blue-500/10 blur-[150px]" />
 
-          <div className="relative grid max-h-[90vh] overflow-y-auto lg:grid-cols-2">
-            {/* Left Side */}
+<div className="relative grid max-h-[90vh] overflow-y-auto overflow-x-hidden lg:grid-cols-2 scrollbar-hide">              {/* Left Side */}
 
 <div className="flex flex-col justify-center p-5 lg:p-14">
 
@@ -175,7 +172,7 @@ className="absolute right-4 top-4 z-50 flex h-10 w-10 items-center justify-cente
     🎓 {announcement.title}
   </h2>
 
-  <p className="mt-6 whitespace-pre-wrap break-all text-base leading-7 text-slate-300 sm:text-lg">
+  <p className="mt-6 whitespace-pre-wrap break-words [overflow-wrap:anywhere] text-base leading-7 text-slate-300 sm:text-lg">
     {announcement.message}
   </p>
 
@@ -206,7 +203,7 @@ className="absolute right-4 top-4 z-50 flex h-10 w-10 items-center justify-cente
         setOpen(false);
 
         setTimeout(() => {
-          document.getElementById("enquiry")?.scrollIntoView({
+          document.getElementById("enquiry-form")?.scrollIntoView({
             behavior: "smooth",
           });
         }, 200);

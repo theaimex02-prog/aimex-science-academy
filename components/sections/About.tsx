@@ -58,7 +58,7 @@ export default function About() {
 
   <div className="absolute -bottom-8 -right-8 rounded-3xl bg-cyan-500 px-8 py-6 shadow-2xl">
 
-    <h3 className="text-4xl font-bold">10+</h3>
+    <h3 className="text-4xl font-bold">20+</h3>
 
     <p className="font-medium">
       Years of Excellence

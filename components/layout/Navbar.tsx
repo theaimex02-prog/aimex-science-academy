@@ -1,5 +1,5 @@
 "use client";
-
+import { useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -17,9 +17,52 @@ const navItems = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [showNavbar, setShowNavbar] = useState(true);
+  useEffect(() => {
+  if (menuOpen) {
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+  }
+
+  return () => {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+  };
+}, [menuOpen]);
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    // Always show near the top
+    if (currentScrollY < 50) {
+      setShowNavbar(true);
+    } else if (currentScrollY > lastScrollY) {
+      // Scrolling down
+      setShowNavbar(false);
+    } else {
+      // Scrolling up
+      setShowNavbar(true);
+    }
+
+    setLastScrollY(currentScrollY);
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, [lastScrollY]);
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-  <div className="relative mx-auto mt-4 max-w-7xl px-4">
+<header
+  className={`fixed inset-x-0 top-0 z-50 transition-transform duration-300 md:translate-y-0 ${
+    showNavbar ? "translate-y-0" : "-translate-y-full"
+  }`}
+>  <div className="relative mx-auto mt-4 max-w-7xl px-4">
       <div className="mx-auto mt-4 flex max-w-7xl items-center justify-between rounded-2xl border border-white/10 bg-[#08101f]/70 px-6 py-4 backdrop-blur-2xl shadow-2xl shadow-cyan-500/5">
 
         {/* Logo */}

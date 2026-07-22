@@ -1,5 +1,5 @@
 "use client";
-
+import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 import {
@@ -104,6 +104,18 @@ useEffect(() => {
   </a>
 </div>
 
+<div className="flex items-center gap-3">
+  <FaWhatsapp size={20} className="text-cyan-400" />
+
+  <a
+    href="https://wa.me/919370906120"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-slate-300 transition hover:text-cyan-400"
+  >
+    +91 93709 06120
+  </a>
+</div>
               <div className="flex items-center gap-3">
   <Mail size={18} className="text-cyan-400" />
 
@@ -157,7 +169,7 @@ useEffect(() => {
   href={settings?.facebook || "#"}
   target="_blank"
   rel="noopener noreferrer"
-  className="rounded-xl bg-white/5 p-4 transition hover:scale-110 hover:bg-red-500"
+  className="rounded-xl bg-white/5 p-4 transition hover:scale-110 hover:bg-blue-600"
 >
   <FaFacebook size={22} />
 </a>

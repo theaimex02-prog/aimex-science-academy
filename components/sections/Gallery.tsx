@@ -1,10 +1,10 @@
 "use client";
 
+import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-
 import { motion } from "framer-motion";
+import { Expand, X } from "lucide-react";
 
-import { Expand } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 
@@ -29,12 +29,26 @@ interface GalleryItem {
 }
 
 export default function Gallery() {
-
+const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
   const [gallery, setGallery] = useState<GalleryItem[]>([]);
 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+  if (selectedImage) {
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+  }
+
+  return () => {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+  };
+}, [selectedImage]);
+useEffect(() => {
 
     const loadGallery = async () => {
 
@@ -159,10 +173,10 @@ export default function Gallery() {
       <SwiperSlide key={item.id}>
         <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-xl">
           <img
-            src={item.imageUrl}
-            alt={item.title}
-            className="h-72 w-full object-cover"
-          />
+  src={selectedImage?.imageUrl}
+alt={selectedImage?.title}
+  className="max-h-[78vh] w-auto rounded-3xl object-contain"
+/>
 
 <div className="p-4">
               <span className="rounded-full bg-cyan-500 px-3 py-1 text-xs font-semibold text-white">
@@ -315,14 +329,11 @@ export default function Gallery() {
   </div>
 
   <button
-
-    className="w-full rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/30"
-
-  >
-
-    View Image
-
-  </button>
+  onClick={() => setSelectedImage(item)}
+  className="w-full rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/30"
+>
+  View Image
+</button>
 
 </div>
 
@@ -365,7 +376,44 @@ className="mt-10 text-center"        >
         </motion.div>
 
       </div>
+<AnimatePresence>
+  {selectedImage && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={() => setSelectedImage(null)}
+      className="fixed inset-0 z-[9999] overflow-y-auto bg-black/90 backdrop-blur-xl"
+    >
+      <motion.div
+        initial={{ scale: 0.9 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0.9 }}
+        onClick={(e) => e.stopPropagation()}
+        className="relative mx-auto flex min-h-screen w-full max-w-6xl items-center justify-center p-6"
+      >
+        <button
+          onClick={() => setSelectedImage(null)}
+          className="absolute right-4 top-4 rounded-full bg-white p-2"
+        >
+          <X className="text-black" />
+        </button>
 
+        <div className="flex flex-col items-center">
+          <img
+            src={selectedImage.imageUrl}
+            alt={selectedImage.title}
+            className="max-h-[78vh] max-w-full rounded-3xl object-contain"
+          />
+
+          <h3 className="mt-4 text-center text-2xl font-bold text-white">
+            {selectedImage.title}
+          </h3>
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
     </section>
 
   );

@@ -21,10 +21,10 @@ export default function Home() {
 
       <Hero />
 
-      <About />
+      
 
       <Courses />
-
+<About />
       <Results />
 
       <Faculty />

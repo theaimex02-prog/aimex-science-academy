@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import AtomScene from "@/components/three/AtomScene";
+import QuantumCore from "@/components/three/AtomScene";
 import Counter from "@/components/common/Counter";
 import { useEffect, useState } from "react";
 import { getSettings, WebsiteSettings } from "@/lib/getSettings";
@@ -158,7 +158,7 @@ onClick={() => scrollToSection("enquiry-form")}
     />
 
     <h2 className="text-sm font-bold text-cyan-400 sm:text-2xl lg:text-4xl">
-      <Counter end={5000} suffix="+" />
+      <Counter end={500} suffix="+" />
     </h2>
 
     <p className="mt-1 text-[10px] leading-tight text-slate-300 sm:text-xs lg:mt-2 lg:text-base">
@@ -229,7 +229,7 @@ onClick={() => scrollToSection("enquiry-form")}
 
   {/* Atom */}
   <div className="relative h-full w-full max-w-[600px]">
-    <AtomScene />
+    <QuantumCore />
   </div>
 
 </div>

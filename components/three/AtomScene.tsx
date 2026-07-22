@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, OrbitControls } from "@react-three/drei";
+import { Float } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 
@@ -23,8 +23,11 @@ function Electron({
 
     const t = clock.getElapsedTime() * speed + offset;
 
-    ref.current.position.x = Math.cos(t) * radius;
-    ref.current.position.z = Math.sin(t) * radius;
+    ref.current.position.set(
+      Math.cos(t) * radius,
+      0,
+      Math.sin(t) * radius
+    );
   });
 
   return (
@@ -42,11 +45,39 @@ function Electron({
 function Atom() {
   const group = useRef<THREE.Group>(null);
 
-  useFrame((_, delta) => {
+  useFrame(({ mouse, clock }) => {
     if (!group.current) return;
 
-    group.current.rotation.y += delta * 0.25;
-    group.current.rotation.x += delta * 0.08;
+    const t = clock.elapsedTime;
+
+    // Idle rotation
+    const targetRotY = mouse.x * 0.8 + t * 0.25;
+    const targetRotX = mouse.y * 0.5;
+
+    group.current.rotation.x = THREE.MathUtils.lerp(
+      group.current.rotation.x,
+      targetRotX,
+      0.08
+    );
+
+    group.current.rotation.y = THREE.MathUtils.lerp(
+      group.current.rotation.y,
+      targetRotY,
+      0.08
+    );
+
+    // Parallax movement
+    group.current.position.x = THREE.MathUtils.lerp(
+      group.current.position.x,
+      mouse.x * 0.35,
+      0.08
+    );
+
+    group.current.position.y = THREE.MathUtils.lerp(
+      group.current.position.y,
+      mouse.y * 0.25,
+      0.08
+    );
   });
 
   return (
@@ -56,7 +87,6 @@ function Atom() {
       floatIntensity={0.8}
     >
       <group ref={group}>
-
         {/* Nucleus */}
         <mesh>
           <sphereGeometry args={[0.32, 32, 32]} />
@@ -79,22 +109,34 @@ function Atom() {
           />
         </mesh>
 
-        {/* Orbit Ring 1 */}
-        <mesh rotation={[0, 0, 0]}>
-          <torusGeometry args={[1.15, 0.01, 16, 100]} />
-          <meshStandardMaterial color="#67e8f9" />
+        {/* Orbit 1 */}
+        <mesh>
+          <torusGeometry args={[1.15, 0.01, 16, 120]} />
+          <meshStandardMaterial
+            color="#67e8f9"
+            emissive="#67e8f9"
+            emissiveIntensity={1.5}
+          />
         </mesh>
 
-        {/* Orbit Ring 2 */}
+        {/* Orbit 2 */}
         <mesh rotation={[Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[1.15, 0.01, 16, 100]} />
-          <meshStandardMaterial color="#38bdf8" />
+          <torusGeometry args={[1.15, 0.01, 16, 120]} />
+          <meshStandardMaterial
+            color="#38bdf8"
+            emissive="#38bdf8"
+            emissiveIntensity={1.5}
+          />
         </mesh>
 
-        {/* Orbit Ring 3 */}
+        {/* Orbit 3 */}
         <mesh rotation={[0, Math.PI / 2, 0]}>
-          <torusGeometry args={[1.15, 0.01, 16, 100]} />
-          <meshStandardMaterial color="#3b82f6" />
+          <torusGeometry args={[1.15, 0.01, 16, 120]} />
+          <meshStandardMaterial
+            color="#3b82f6"
+            emissive="#3b82f6"
+            emissiveIntensity={1.5}
+          />
         </mesh>
 
         <Electron
@@ -106,18 +148,17 @@ function Atom() {
 
         <Electron
           radius={1.15}
-          speed={1}
+          speed={1.2}
           offset={2}
           color="#67e8f9"
         />
 
         <Electron
           radius={1.15}
-          speed={1}
+          speed={0.9}
           offset={4}
           color="#93c5fd"
         />
-
       </group>
     </Float>
   );
@@ -125,11 +166,13 @@ function Atom() {
 
 export default function AtomScene() {
   return (
-<Canvas
-  className="!h-full !w-full"
-  camera={{ position: [0, 0, 4], fov: 45 }}
-  dpr={[1, 2]}
->
+    <Canvas
+      camera={{
+        position: [0, 0, 4],
+        fov: 45,
+      }}
+      dpr={[1, 2]}
+    >
       <ambientLight intensity={2} />
 
       <pointLight
@@ -139,18 +182,11 @@ export default function AtomScene() {
 
       <pointLight
         position={[-3, -2, 2]}
-        intensity={1.5}
+        intensity={2}
         color="#38bdf8"
       />
 
       <Atom />
-<OrbitControls
-  enableZoom={false}
-  enablePan={false}
-  enableRotate={true}
-  autoRotate
-  autoRotateSpeed={0.35}
-/>
     </Canvas>
   );
 }
