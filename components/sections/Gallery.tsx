@@ -173,9 +173,9 @@ useEffect(() => {
       <SwiperSlide key={item.id}>
         <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-xl">
           <img
-  src={selectedImage?.imageUrl}
-alt={selectedImage?.title}
-  className="max-h-[78vh] w-auto rounded-3xl object-contain"
+  src={item.imageUrl}
+  alt={item.title}
+  className="h-60 w-full object-cover"
 />
 
 <div className="p-4">

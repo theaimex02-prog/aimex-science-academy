@@ -110,56 +110,38 @@ className="overflow-hidden rounded-[32px] border border-cyan-500/20 bg-white/5 p
 
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+            <div className="group rounded-3xl border border-cyan-500/10 bg-gradient-to-b from-white/10 to-white/5 p-5 text-center backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400 hover:shadow-[0_0_35px_rgba(34,211,238,0.18)]">
+  <BookOpen
+    size={30}
+    className="mx-auto text-cyan-400 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+  />
 
-              <BookOpen
-                size={36}
-                className="mx-auto text-cyan-400"
-              />
+  <h3 className="mt-3 text-2xl font-extrabold md:text-3xl">
+    NEET
+  </h3>
+</div>
 
-              <h3 className="mt-4 text-3xl font-bold">
-                100%
-              </h3>
+            <div className="group rounded-3xl border border-cyan-500/10 bg-gradient-to-b from-white/10 to-white/5 p-5 text-center backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400 hover:shadow-[0_0_35px_rgba(34,211,238,0.18)]">
+  <GraduationCap
+    size={30}
+    className="mx-auto text-cyan-400 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+  />
 
-              <p className="mt-2 text-slate-300">
-                Concept Learning
-              </p>
+  <h3 className="mt-3 text-2xl font-extrabold md:text-3xl">
+    JEE
+  </h3>
+</div>
 
-            </div>
+            <div className="group rounded-3xl border border-cyan-500/10 bg-gradient-to-b from-white/10 to-white/5 p-5 text-center backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400 hover:shadow-[0_0_35px_rgba(34,211,238,0.18)]">
+  <Star
+    size={30}
+    className="mx-auto text-yellow-400 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+  />
 
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-
-              <GraduationCap
-                size={36}
-                className="mx-auto text-cyan-400"
-              />
-
-              <h3 className="mt-4 text-3xl font-bold">
-                NEET
-              </h3>
-
-              <p className="mt-2 text-slate-300">
-                JEE • CET
-              </p>
-
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-
-              <Star
-                size={36}
-                className="mx-auto text-yellow-400"
-              />
-
-              <h3 className="mt-4 text-3xl font-bold">
-                5★
-              </h3>
-
-              <p className="mt-2 text-slate-300">
-                Google Rating
-              </p>
-
-            </div>
+  <h3 className="mt-3 text-2xl font-extrabold md:text-3xl">
+    CET
+  </h3>
+</div>
 
           </div>
 

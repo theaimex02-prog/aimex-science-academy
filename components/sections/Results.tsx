@@ -84,8 +84,8 @@ export default function Results() {
   return (
     <section
   id="results"
-className="relative -mt-6 overflow-hidden bg-[#08111F] pt-0 pb-28 text-white lg:mt-0 lg:py-28">
-  {/* Background Glow */}
+className="relative mt-8 overflow-hidden bg-[#08111F] py-20 text-white lg:-mt-6 lg:py-28">
+    {/* Background Glow */}
 
   <div className="absolute inset-0">
 

@@ -141,16 +141,15 @@ setOpen(true);
             duration: .35,
           }}
 
-className="relative w-[94vw] max-w-5xl rounded-[28px] overflow-hidden border border-cyan-500/20 bg-[#081321] shadow-[0_0_80px_rgba(6,182,212,.15)]">
-          {/* Close */}
+className="relative w-[92vw] max-w-5xl overflow-hidden rounded-[24px] border border-cyan-500/20 bg-[#081321] shadow-[0_0_80px_rgba(6,182,212,.15)] sm:w-[90vw] lg:rounded-[28px]">          {/* Close */}
 
           <button
             onClick={() => {
   sessionStorage.setItem("announcementShown", "true");
   setOpen(false);
 }}
-className="absolute right-4 top-4 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-red-500 text-white transition hover:scale-110 lg:h-12 lg:w-12"          >
-            <X size={22} />
+className="absolute right-3 top-3 z-50 flex h-9 w-9 items-center justify-center rounded-full bg-red-500 text-white transition hover:scale-110 lg:right-4 lg:top-4 lg:h-12 lg:w-12">
+              <X size={22} />
           </button>
 
           {/* Glow */}
@@ -172,11 +171,11 @@ className="absolute right-4 top-4 z-50 flex h-10 w-10 items-center justify-cente
     🎓 {announcement.title}
   </h2>
 
-  <p className="mt-6 whitespace-pre-wrap break-words [overflow-wrap:anywhere] text-base leading-7 text-slate-300 sm:text-lg">
-    {announcement.message}
+<p className="mt-6 break-all whitespace-pre-wrap text-base leading-7 text-slate-300 sm:text-lg">
+      {announcement.message}
   </p>
 
-  <div className="mt-8 grid grid-cols-2 gap-3">
+  <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
 
     <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm">
       ✅ Expert Faculty
@@ -208,7 +207,7 @@ className="absolute right-4 top-4 z-50 flex h-10 w-10 items-center justify-cente
           });
         }, 200);
       }}
-className="group flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-4 text-base font-bold text-white transition hover:scale-[1.02] lg:inline-flex lg:w-auto"    >
+className="group flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-4 text-base font-bold text-white transition hover:scale-[1.02] sm:px-6 lg:inline-flex lg:w-auto"    >
       🚀 Apply for Admission
 
       <ArrowRight

@@ -56,15 +56,17 @@ export default function About() {
 
   </div>
 
-  <div className="absolute -bottom-8 -right-8 rounded-3xl bg-cyan-500 px-8 py-6 shadow-2xl">
+  <div className="absolute -bottom-4 -right-4 rounded-2xl bg-cyan-500 px-5 py-4 shadow-2xl md:-bottom-8 md:-right-8 md:rounded-3xl md:px-8 md:py-6">
 
-    <h3 className="text-4xl font-bold">20+</h3>
+  <h3 className="text-3xl font-bold md:text-4xl">
+    20+
+  </h3>
 
-    <p className="font-medium">
-      Years of Excellence
-    </p>
+  <p className="text-sm font-medium md:text-base">
+    Years of Excellence
+  </p>
 
-  </div>
+</div>
 </motion.div>
 
 {/* Right Side */}
