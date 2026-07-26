@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float } from "@react-three/drei";
+
 import { useRef } from "react";
 import * as THREE from "three";
 
@@ -81,12 +81,7 @@ function Atom() {
   });
 
   return (
-    <Float
-      speed={2}
-      rotationIntensity={0.15}
-      floatIntensity={0.8}
-    >
-      <group ref={group}>
+  <group ref={group}>
         {/* Nucleus */}
         <mesh>
           <sphereGeometry args={[0.32, 32, 32]} />
@@ -160,7 +155,7 @@ function Atom() {
           color="#93c5fd"
         />
       </group>
-    </Float>
+    
   );
 }
 
