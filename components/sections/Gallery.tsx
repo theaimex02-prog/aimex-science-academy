@@ -172,11 +172,16 @@ useEffect(() => {
     {gallery.map((item) => (
       <SwiperSlide key={item.id}>
         <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-xl">
-          <img
-  src={item.imageUrl}
-  alt={item.title}
-  className="h-60 w-full object-cover"
-/>
+  <div
+    className="cursor-pointer"
+    onClick={() => setSelectedImage(item)}
+  >
+    <img
+      src={item.imageUrl}
+      alt={item.title}
+      className="h-60 w-full object-cover transition duration-300 active:scale-[0.98]"
+    />
+  </div>
 
 <div className="p-4">
               <span className="rounded-full bg-cyan-500 px-3 py-1 text-xs font-semibold text-white">
@@ -252,19 +257,16 @@ useEffect(() => {
 
                 {/* Image */}
 
-                <div className="relative h-72 overflow-hidden">
-
-                  <img
-
-                    src={item.imageUrl}
-
-                    alt={item.title}
-
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-
-                  />
-
-                </div>
+                <div
+  className="relative h-60 cursor-pointer overflow-hidden"
+  onClick={() => setSelectedImage(item)}
+>
+  <img
+    src={item.imageUrl}
+    alt={item.title}
+    className="h-full w-full object-cover transition duration-300 active:scale-[0.98]"
+  />
+</div>
 
                 {/* Hover Overlay */}
 

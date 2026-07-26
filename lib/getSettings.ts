@@ -23,14 +23,16 @@ export interface WebsiteSettings {
   favicon: string;
 }
 
-export async function getSettings() {
+export async function getSettings(): Promise<WebsiteSettings | null> {
+  try {
+    const ref = doc(db, "settings", "website");
+    const snap = await getDoc(ref);
 
-  const ref = doc(db, "settings", "website");
+    if (!snap.exists()) return null;
 
-  const snap = await getDoc(ref);
-
-  if (!snap.exists()) return null;
-
-  return snap.data() as WebsiteSettings;
-
+    return snap.data() as WebsiteSettings;
+  } catch (error) {
+    console.error("Failed to load website settings:", error);
+    return null;
+  }
 }

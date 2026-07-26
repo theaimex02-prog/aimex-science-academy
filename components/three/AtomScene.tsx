@@ -167,12 +167,18 @@ function Atom() {
 export default function AtomScene() {
   return (
     <Canvas
-      camera={{
-        position: [0, 0, 4],
-        fov: 45,
-      }}
-      dpr={[1, 2]}
-    >
+  camera={{
+    position: [0, 0, 4],
+    fov: 45,
+  }}
+  dpr={1}
+  gl={{
+    antialias: false,
+    alpha: true,
+    powerPreference: "low-power",
+    preserveDrawingBuffer: false,
+  }}
+>
       <ambientLight intensity={2} />
 
       <pointLight

@@ -229,8 +229,8 @@ onClick={() => scrollToSection("enquiry-form")}
 
   {/* Atom */}
   <div className="relative h-full w-full max-w-[600px]">
-    <QuantumCore />
-  </div>
+  <QuantumCore />
+</div>
 
 </div>
         </div>
