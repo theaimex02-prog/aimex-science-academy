@@ -31,13 +31,13 @@ export default function LoginPage() {
 
       router.push("/admin");
 
-    } catch (error) {
+    } catch (error: any) {
+  console.error(error);
 
-      console.error(error);
-
-      alert("Login Failed");
-
-    } finally {
+  alert(
+    `${error.code}\n\n${error.message}`
+  );
+} finally {
 
       setLoading(false);
 

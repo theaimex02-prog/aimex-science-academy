@@ -32,7 +32,7 @@ function Electron({
 
   return (
     <mesh ref={ref}>
-      <sphereGeometry args={[0.07, 24, 24]} />
+<sphereGeometry args={[0.07, 16, 16]} />
       <meshStandardMaterial
         color={color}
         emissive={color}
@@ -89,7 +89,7 @@ function Atom() {
       <group ref={group}>
         {/* Nucleus */}
         <mesh>
-          <sphereGeometry args={[0.32, 32, 32]} />
+<sphereGeometry args={[0.32, 24, 24]} />
           <meshStandardMaterial
             color="#38bdf8"
             emissive="#0ea5e9"
@@ -101,8 +101,8 @@ function Atom() {
 
         {/* Glow */}
         <mesh>
-          <sphereGeometry args={[0.42, 32, 32]} />
-          <meshBasicMaterial
+<sphereGeometry args={[0.42, 24, 24]} /> 
+         <meshBasicMaterial
             color="#67e8f9"
             transparent
             opacity={0.18}
@@ -111,8 +111,8 @@ function Atom() {
 
         {/* Orbit 1 */}
         <mesh>
-          <torusGeometry args={[1.15, 0.01, 16, 120]} />
-          <meshStandardMaterial
+<torusGeometry args={[1.15, 0.01, 12, 72]} /
+>          <meshStandardMaterial
             color="#67e8f9"
             emissive="#67e8f9"
             emissiveIntensity={1.5}
@@ -167,12 +167,17 @@ function Atom() {
 export default function AtomScene() {
   return (
     <Canvas
-      camera={{
-        position: [0, 0, 4],
-        fov: 45,
-      }}
-      dpr={[1, 2]}
-    >
+  camera={{
+    position: [0, 0, 4],
+    fov: 45,
+  }}
+  dpr={[1, 2]}
+  gl={{
+    antialias: true,
+    powerPreference: "high-performance",
+    alpha: true,
+  }}
+>
       <ambientLight intensity={2} />
 
       <pointLight

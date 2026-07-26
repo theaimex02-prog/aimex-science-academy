@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import QuantumCore from "@/components/three/AtomScene";
+import dynamic from "next/dynamic";
 import Counter from "@/components/common/Counter";
 import { useEffect, useState } from "react";
 import { getSettings, WebsiteSettings } from "@/lib/getSettings";
@@ -12,6 +12,17 @@ import {
   Users,
   Headphones,
 } from "lucide-react";
+const QuantumCore = dynamic(
+  () => import("@/components/three/AtomScene"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex h-full w-full items-center justify-center">
+        <div className="h-16 w-16 animate-spin rounded-full border-4 border-cyan-400 border-t-transparent" />
+      </div>
+    ),
+  }
+);
 export default function Hero() {
 
   const scrollToSection = (id: string) => {
@@ -28,7 +39,7 @@ export default function Hero() {
   const [settings, setSettings] = useState<WebsiteSettings | null>(null);
   
 const [loadingSettings, setLoadingSettings] = useState(true);
-
+const [showAtom, setShowAtom] = useState(false);
   useEffect(() => {
   const loadSettings = async () => {
     try {
@@ -43,6 +54,11 @@ const [loadingSettings, setLoadingSettings] = useState(true);
   };
 
   loadSettings();
+  const timer = setTimeout(() => {
+  setShowAtom(true);
+}, 800);
+
+return () => clearTimeout(timer);
 }, []);
 
   
@@ -229,7 +245,13 @@ onClick={() => scrollToSection("enquiry-form")}
 
   {/* Atom */}
   <div className="relative h-full w-full max-w-[600px]">
-  <QuantumCore />
+  {showAtom ? (
+    <QuantumCore />
+  ) : (
+    <div className="flex h-full w-full items-center justify-center">
+      <div className="h-32 w-32 rounded-full border border-cyan-500/20 bg-cyan-500/5 blur-sm" />
+    </div>
+  )}
 </div>
 
 </div>
