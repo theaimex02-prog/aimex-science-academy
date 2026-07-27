@@ -13,51 +13,86 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://theaimex.com"),
+
   title: {
-    default: "AimEx Science Academy",
+    default: "AimEx Science Academy | Best NEET, JEE & MHT-CET Coaching in Nashik",
     template: "%s | AimEx Science Academy",
   },
 
   description:
-    "AimEx Science Academy provides expert coaching for NEET, JEE, MHT-CET, CBSE, ICSE and Maharashtra Board with experienced faculty and outstanding results.",
+    "AimEx Science Academy is one of Nashik's leading coaching institutes for NEET, JEE, MHT-CET, CBSE, ICSE, Maharashtra Board, and 11th & 12th Science with expert faculty, modern classrooms, and excellent results.",
 
   keywords: [
     "AimEx Science Academy",
-    "NEET Coaching",
-    "JEE Coaching",
-    "MHT CET",
+    "AimEx",
+    "NEET Coaching Nashik",
+    "JEE Coaching Nashik",
+    "MHT CET Coaching Nashik",
+    "Best Coaching Classes Nashik",
     "Science Academy Nashik",
-    "11th Science",
-    "12th Science",
-    "CBSE Coaching",
-    "ICSE Coaching",
+    "11th Science Coaching",
+    "12th Science Coaching",
+    "CBSE Coaching Nashik",
+    "ICSE Coaching Nashik",
     "Board Exam Coaching",
+    "Medical Entrance Coaching",
+    "Engineering Entrance Coaching",
+    "Competitive Exam Coaching",
   ],
 
   authors: [
     {
       name: "AimEx Science Academy",
+      url: "https://theaimex.com",
     },
   ],
 
   creator: "AimEx Science Academy",
 
+  publisher: "AimEx Science Academy",
+
   applicationName: "AimEx Science Academy",
 
-  metadataBase: new URL("https://www.aimexscienceacademy.com"),
+  category: "Education",
+
+  alternates: {
+    canonical: "https://theaimex.com",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 
   openGraph: {
     title: "AimEx Science Academy",
     description:
-      "Expert coaching for NEET, JEE, MHT-CET and Board Exams.",
+      "Expert coaching for NEET, JEE, MHT-CET, CBSE, ICSE and Maharashtra Board in Nashik.",
 
-    url: "https://www.aimexscienceacademy.com",
+    url: "https://theaimex.com",
 
     siteName: "AimEx Science Academy",
 
     locale: "en_IN",
 
     type: "website",
+
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AimEx Science Academy",
+      },
+    ],
   },
 
   twitter: {
@@ -65,11 +100,14 @@ export const metadata: Metadata = {
     title: "AimEx Science Academy",
     description:
       "Expert coaching for NEET, JEE, MHT-CET and Board Exams.",
+
+    images: ["/og-image.jpg"],
   },
 
-  robots: {
-    index: true,
-    follow: true,
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -83,7 +121,9 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-screen flex flex-col bg-background text-foreground">
+        {children}
+      </body>
     </html>
   );
 }
