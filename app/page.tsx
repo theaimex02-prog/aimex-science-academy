@@ -81,9 +81,7 @@ export default function Home() {
   <Gallery />
 </LazySection>
 
-<LazySection placeholderHeight={700}>
-  <Contact />
-</LazySection>
+<Contact />
 
 <LazySection placeholderHeight={250}>
   <CTA />

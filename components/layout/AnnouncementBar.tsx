@@ -57,7 +57,12 @@ console.log("Announcement:", data);
           console.log("Announcement Data:", data);
 
 setAnnouncement(data);
-setOpen(true);
+
+const alreadyShown = sessionStorage.getItem("announcementShown");
+
+if (!alreadyShown) {
+  setOpen(true);
+}
         }
       } catch (err) {
         console.error("Failed to load announcement:", err);
@@ -145,7 +150,7 @@ className="relative w-[92vw] max-w-5xl overflow-hidden rounded-[24px] border bor
 
           <button
             onClick={() => {
-  sessionStorage.setItem("announcementShown", "true");
+sessionStorage.setItem("announcementShown", announcement.id);
   setOpen(false);
 }}
 className="absolute right-3 top-3 z-50 flex h-9 w-9 items-center justify-center rounded-full bg-red-500 text-white transition hover:scale-110 lg:right-4 lg:top-4 lg:h-12 lg:w-12">
@@ -198,15 +203,13 @@ className="absolute right-3 top-3 z-50 flex h-9 w-9 items-center justify-center 
   <div className="mt-10 flex flex-wrap gap-4">
 
     <button
-      onClick={() => {
-        setOpen(false);
+  onClick={() => {
+    sessionStorage.setItem("announcementShown", "true");
+    setOpen(false);
 
-        setTimeout(() => {
-          document.getElementById("enquiry-form")?.scrollIntoView({
-            behavior: "smooth",
-          });
-        }, 200);
-      }}
+    window.location.href = "/#contact";
+  }}
+
 className="group flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-4 text-base font-bold text-white transition hover:scale-[1.02] sm:px-6 lg:inline-flex lg:w-auto"    >
       🚀 Apply for Admission
 

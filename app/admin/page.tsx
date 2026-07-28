@@ -192,8 +192,7 @@ const deleteEnquiry = async () => {
 };
 
   return (
-    <div>
-
+<div className="w-full max-w-full overflow-x-hidden">
       {/* Hero */}
 
       <motion.div
@@ -208,7 +207,7 @@ const deleteEnquiry = async () => {
         transition={{
           duration: .6,
         }}
-        className="relative overflow-hidden rounded-[32px] border border-cyan-500/20 bg-gradient-to-r from-cyan-500/10 via-blue-600/10 to-indigo-600/10 p-10"
+        className="relative overflow-hidden rounded-[32px] border border-cyan-500/20 bg-gradient-to-r from-cyan-500/10 via-blue-600/10 to-indigo-600/10 p-6 lg:p-10"
       >
 
         <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-cyan-500/10 blur-[120px]" />
@@ -217,8 +216,7 @@ const deleteEnquiry = async () => {
           AIMEX ADMIN
         </p>
 
-        <h1 className="mt-4 text-5xl font-black">
-
+<h1 className="mt-4 text-3xl font-black sm:text-4xl lg:text-5xl">
           Welcome Back,
 
           <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
@@ -229,8 +227,7 @@ const deleteEnquiry = async () => {
 
         </h1>
 
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-
+<p className="mt-6 max-w-3xl text-base leading-7 text-slate-300 lg:text-lg">
           Monitor admissions, manage enquiries and keep
           track of your academy from one place.
 
@@ -365,8 +362,7 @@ const deleteEnquiry = async () => {
           className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
         >
 
-          <div className="flex items-center justify-between">
-
+<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-2xl font-bold">
               Recent Enquiries
             </h2>
@@ -377,9 +373,8 @@ const deleteEnquiry = async () => {
 
           </div>
 
-          <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
-
-            <table className="w-full">
+          <div className="mt-8 overflow-x-auto rounded-2xl border border-white/10">
+  <table className="min-w-[700px] w-full">
 <thead>
 <tr>
 

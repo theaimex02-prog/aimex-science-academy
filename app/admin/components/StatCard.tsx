@@ -27,8 +27,7 @@ export default function StatCard({
       transition={{
         duration: 0.25,
       }}
-      className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl"
-    >
+className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-6 lg:p-7 backdrop-blur-xl"    >
       {/* Glow */}
 
       <div className="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-cyan-500/10 blur-3xl transition group-hover:bg-cyan-500/20" />
@@ -41,8 +40,8 @@ export default function StatCard({
             {title}
           </p>
 
-          <h2 className="mt-5 text-5xl font-black">
-            {value}
+<h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-black">
+              {value}
           </h2>
 
           {change && (
@@ -61,7 +60,7 @@ export default function StatCard({
           className={`rounded-2xl p-4 shadow-xl ${color}`}
         >
           <Icon
-            size={32}
+            size={26}
             className="text-white"
           />
         </div>

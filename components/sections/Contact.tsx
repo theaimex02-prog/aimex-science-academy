@@ -280,22 +280,23 @@ className="relative -mt-12 overflow-hidden bg-[#08111F] pt-8 pb-24 text-white"  
           {/* RIGHT */}
 
           <motion.div
-            initial={{
-              opacity: 0,
-              x: 40,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
-            transition={{
-              duration: 0.7,
-            }}
-            viewport={{
-              once: true,
-            }}
-            className="self-start rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
-          >
+  id="enquiry-form"
+  initial={{
+    opacity: 0,
+    x: 40,
+  }}
+  whileInView={{
+    opacity: 1,
+    x: 0,
+  }}
+  transition={{
+    duration: 0.7,
+  }}
+  viewport={{
+    once: true,
+  }}
+  className="scroll-mt-28 self-start rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
+>
 
             <h3 className="text-3xl font-bold">
               Send an Enquiry
@@ -306,9 +307,8 @@ className="relative -mt-12 overflow-hidden bg-[#08111F] pt-8 pb-24 text-white"  
             </p>
 
             <form
-  id="enquiry-form"
   onSubmit={handleSubmit}
-  className="mt-8 space-y-5 scroll-mt-28"
+  className="mt-8 space-y-5"
 >
                             <div className="grid gap-5 md:grid-cols-2">
 

@@ -115,7 +115,7 @@ const faqs = [
       <div className="mt-12 flex flex-wrap gap-4">
 
         <Link
-          href="/#contact"
+href="/#enquiry-form"
           className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 font-bold transition hover:scale-105"
         >
           Apply Now
@@ -438,7 +438,7 @@ const faqs = [
           <div className="mt-8 flex justify-center gap-4">
 
             <Link
-              href="/#contact"
+href="/#enquiry-form"
               className="rounded-xl bg-white px-8 py-3 font-semibold text-black"
             >
               Enquire Now
