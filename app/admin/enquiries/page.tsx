@@ -15,7 +15,8 @@ import {
 import { db } from "../../../firebase/firebase";
 
 import EnquiryModal from "../components/EnquiryModal";
-
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
 interface Enquiry {
   id: string;
   name: string;
@@ -195,6 +196,36 @@ export default function EnquiriesPage() {
 
   ]);
 
+  const exportToExcel = () => {
+    const data = enquiries.map((item) => ({
+      "Student Name": item.name,
+      "Phone": item.phone,
+      "Email": item.email || "",
+      "Course": item.course,
+      "Message": item.message || "",
+      "Status": item.status === "contacted" ? "Contacted" : "New",
+      "Date": item.createdAt?.toDate ? item.createdAt.toDate().toLocaleDateString("en-IN") : "",
+    }));
+const worksheet = XLSX.utils.json_to_sheet(data);
+
+// Auto column width
+worksheet["!cols"] = [
+  { wch: 25 }, // Student Name
+  { wch: 18 }, // Phone
+  { wch: 35 }, // Email
+  { wch: 22 }, // Course
+  { wch: 50 }, // Message
+  { wch: 15 }, // Status
+  { wch: 18 }, // Date
+];
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Student Enquiries");
+    const excelBuffer = XLSX.write(workbook,{bookType:"xlsx",type:"array"});
+    const file=new Blob([excelBuffer],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8"});
+    saveAs(file,`AimEx_Student_Enquiries_${new Date().toISOString().split("T")[0]}.xlsx`);
+  };
+
+
   return (
 
     <div className="space-y-8">
@@ -219,10 +250,11 @@ export default function EnquiriesPage() {
         </div>
 
         <button
-          className="rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-4 font-semibold text-white transition hover:opacity-90"
-        >
-          📤 Export Excel
-        </button>
+  onClick={exportToExcel}
+  className="rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-4 font-semibold text-white transition hover:opacity-90"
+>
+  📤 Export Excel
+</button>
 
       </div>
 
