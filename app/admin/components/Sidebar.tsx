@@ -78,14 +78,14 @@ export default function Sidebar({ open, setOpen }: SidebarProps) {
       )}
 
       <aside
-        className={`
-          fixed left-0 top-0 z-50 flex h-screen w-72 flex-col
-          bg-[#07111f] border-r border-white/10
-          transform transition-transform duration-300
-          ${open ? "translate-x-0" : "-translate-x-full"}
-          lg:static lg:translate-x-0
-        `}
-      >
+  className={`
+    fixed left-0 top-0 z-50 flex h-screen w-72 flex-col
+    bg-[#07111f] border-r border-white/10
+    transform transition-transform duration-300
+    ${open ? "translate-x-0" : "-translate-x-full"}
+    lg:static lg:translate-x-0
+  `}
+>
         {/* Mobile Close Button */}
         <div className="flex justify-end p-4 lg:hidden">
           <button
@@ -114,8 +114,8 @@ export default function Sidebar({ open, setOpen }: SidebarProps) {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 overflow-y-auto p-6">
-          <div className="space-y-2">
+<nav className="flex-1 overflow-y-auto p-6">
+                <div className="space-y-2">
             {menu.map((item) => {
               const Icon = item.icon;
               const active = pathname === item.href;

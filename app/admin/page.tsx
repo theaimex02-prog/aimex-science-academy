@@ -192,8 +192,8 @@ const deleteEnquiry = async () => {
 };
 
   return (
-<div className="w-full max-w-full overflow-x-hidden">
-      {/* Hero */}
+<div className="flex min-h-full w-full flex-col overflow-x-hidden">
+        {/* Hero */}
 
       <motion.div
         initial={{
@@ -282,8 +282,7 @@ const deleteEnquiry = async () => {
       </div>
             {/* Quick Actions */}
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1.5fr]">
-
+<div className="mt-10 grid flex-1 gap-6 lg:grid-cols-[1fr_1.5fr]">
         {/* Quick Actions */}
 
         <motion.div
@@ -301,8 +300,7 @@ const deleteEnquiry = async () => {
           viewport={{
             once: true,
           }}
-          className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
-        >
+className="flex flex-col rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"        >
 
           <h2 className="text-2xl font-bold">
             Quick Actions
@@ -359,8 +357,7 @@ const deleteEnquiry = async () => {
           viewport={{
             once: true,
           }}
-          className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
-        >
+className="flex flex-col rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"        >
 
 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-2xl font-bold">
@@ -373,7 +370,7 @@ const deleteEnquiry = async () => {
 
           </div>
 
-          <div className="mt-8 overflow-x-auto rounded-2xl border border-white/10">
+<div className="mt-8 flex-1 overflow-x-auto rounded-2xl border border-white/10">
   <table className="min-w-[700px] w-full">
 <thead>
 <tr>
